@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR" ng-app="MakeupPlace-App">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listar Produtos - MakeUp Place</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/updateProductsAdmin.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.8.3/angular-locale_pt-br.min.js></script>
+</head>
+
+<body ng-controller="AdminUpdateController">
+    <header>
+        <button ng-click="backPage()" type="button"><i class="fa-solid fa-arrow-left" title="Voltar pra loja"></i></button>
+        <h1>MakeUp Place ADMIN</h1>
+        <button ng-click="logout()" type="button"><i class="fa-solid fa-right-to-bracket fa-flip-horizontal"
+                title="LogOut"></i></button>
+    </header>
+    <div class="content">
+        <form class="content-form"ng-submit="updateProduct()">
+            <h2>Atualização de Produto</h2>
+            
+            <label>
+                <p>Nome do Produto</p>
+                <input ng-model="name" type="text" placeholder="Digite o nome atualizado">
+            </label>
+            <label>
+                <p>Descrição do Produto</p>
+                <textarea ng-model="description" rows="4" name="description" type="text" placeholder="Digite a descrição do produto"></textarea>
+            </label>
+            <label>
+                <p>Preço do produto</p>
+                <input ng-model="price" type="text" placeholder="Digite o preço atualizado">
+            </label>
+            <label class="imagebtn">
+                <p>Imagem do produto</p>
+                <input ng-model="imageUrl" name="imageUrl"  type="text" placeholder="Digite a url da imagem atualizada">
+            </label>
+            <div class="btnContainer"><button type="submit"> Atualizar </button></div>
+        </form>
+    </div>
+
+    <script src="https://kit.fontawesome.com/581d404d9a.js" crossorigin="anonymous"></script>
+    <script src="../assets/js/app.js"></script>
+    <script src="../assets/js/lib/jwt-decode.js"></script>
+    <script src="../assets/js/services/admin.service.js"></script>
+    <script src="../assets/js/services/session.service.js"></script>
+    <script src="../assets/js/controllers/updateProducts.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR" ng-app="MakeupPlace-App">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - MakeUp Place</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./assets/css/register.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="RegisterController">
+    <div class="content">
+        <div class="login">
+            <h2>Bem-Vindo a MakeUp Place</h2>
+            <p>Já tem uma conta?</p>
+            <div class="loginBtn">
+                <a href="./index.html"><button type="button">Entre agora!</button></a>
+            </div>
+        </div>
+        <form name="registerForm" ng-submit="handleSubmit()" class="register">
+            <h1>Cadastre-se</h1>
+            <label>
+                <p>NOME</p>
+                <input name="name" type="text" ng-model="name" placeholder="Nome" ng-required="true">
+            </label>
+            <label>
+                <p>EMAIL</p>
+                <input name="email" type="text" ng-model="email" placeholder="Email" ng-required="true">
+            </label>
+            <label>
+                <p>SENHA</p>
+                <input name="password" type="text" ng-model="password" placeholder="Senha" ng-required="true">
+            </label>
+            <label>
+                <p>CONFIRME SENHA</p>
+                <input name="confirmPassword" type="text" ng-model="confirmPassword" placeholder="Digite senha novamente" ng-required="true">
+                <span ng-if="registerForm.confirmPassword.$dirty && password !== confirmPassword">
+                    As senhas estão diferentes.
+                </span>
+            </label>
+            <button class="registerBtn" type="submit" ng-disabled="registerForm.$invalid || loading"> Cadastrar {{loading ? 'Enviando...' : Cadastrar}}</button>
+        </form>
+    </div>
+    <script src="./assets/js/controllers/register.js"></script>
+</body>
+</html>

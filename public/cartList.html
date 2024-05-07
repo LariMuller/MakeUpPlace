@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR" ng-app="MakeupPlace-App">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - MakeUp Place</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./assets/css/cartList.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.8.3/angular-locale_pt-br.min.js></script>
+</head>
+<body ng-controller="CartController">
+    <header>
+        <button ng-click="backPage()" type="button"><i class="fa-solid fa-arrow-left"title="Voltar pra loja"></i></button>
+        <h1>MakeUp Place</h1>
+        <button ng-click="closedCart()" type="button"><i class="fa-solid fa-list" title="Lista de Carrinhos"></i></button>
+    </header>
+    <div class="cartList">
+        <table class="cartTable">
+            <thead>
+                <tr class="cartHeader">
+                    <th>PRODUTO</th>
+                    <th>PREÇO</th>
+                    <th>QTD</th>
+                    <th>TOTAL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="cartItem" ></tr>
+                    <td>
+                        <img src="https://encurtador.com.br/puzIO">
+                        <p>Batom Bala Matte Melu</p>
+                    </td>
+                    <td>R$ 50,00</td>
+                    <td>
+                        <button type="button"> - </button>
+                        <span>3</span>
+                        <button type="button">+</button>
+                    </td>
+                    <td>R$ 150,00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="total">
+        <h3>Total do Carrinho:</h3>
+        <p>SubTotal: <span>R$ 500,00</span></p>
+        <p>Frete: <span>R$ 25,92</span></p>
+        <p>Total: <span>R$ 525,92</span></p>
+        <button type="button">Finalizar Compra</button>
+    </div>
+    <script src="https://kit.fontawesome.com/581d404d9a.js" crossorigin="anonymous"></script>
+    <script src="./assets/js/app.js"></script>
+    <script src="./assets/js/lib/jwt-decode.js"></script>
+    <script src="./assets/js/services/session.service.js"></script>
+    <script src="./assets/js/services/admin.service.js"></script>
+    <script src="./assets/js/controllers/cartList.js"></script>
+</body>
+</html>

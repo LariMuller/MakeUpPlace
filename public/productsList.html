@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR" ng-app="MakeupPlace-App">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MakeUp Place</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./assets/css/productsList.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.8.3/angular-locale_pt-br.min.js></script>
+</head>
+<body ng-controller="HomeController">
+    <header>
+        <button ng-click="logout()" type="button"><i class="fa-solid fa-right-to-bracket fa-flip-horizontal" title="LogOut"></i></button>
+        <h1>MakeUp Place</h1>
+        <button ng-click="cartList()" type="button"><i class="fa-solid fa-cart-shopping" title="Carrinho"></i></button>
+    </header>
+    <div class="content">
+        <div class="product" ng-repeat="product in products">
+            <p><img ng-src="{{product.imageUrl}}"></p>
+            <h4>{{product.name}}</h4>
+            <p>{{product.price | currency:"R$"}}</p>
+            <p>{{product.description}}</p>
+            <button ng-click="addProduct()">Adicionar ao carrinho</button>
+        </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer">
+            <a href="https://github.com/LariMuller" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.instagram.com/alpar_br/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/larissa-muller-8254ba217/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a ng-if="isAdmin" href="./admin/productsList.html"><i class="fa-solid fa-user-tie"></i></a>
+        </div>
+    </footer>
+    <script src="https://kit.fontawesome.com/581d404d9a.js" crossorigin="anonymous"></script>
+    <script src="./assets/js/app.js"></script>
+    <script src="./assets/js/lib/jwt-decode.js"></script>
+    <script src="./assets/js/services/session.service.js"></script>
+    <script src="./assets/js/services/admin.service.js"></script>
+    <script src="./assets/js/controllers/productList.js"></script>
+</body>
+</html>
