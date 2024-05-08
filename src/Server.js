@@ -4,6 +4,7 @@ import { usersRouter } from './routes/users.route.js';
 import { productsRouter } from './routes/products.route.js'
 import { sessionRouter } from './routes/session.route.js';
 import bodyParser from 'body-parser';
+import { cartsRouter } from './routes/carts.route.js';
 
 export class Server {
     constructor(port) {
@@ -27,6 +28,7 @@ export class Server {
         this.app.use('/api/users', usersRouter);
         this.app.use('/api/session', sessionRouter)
         this.app.use('/api/products', productsRouter);
+        this.app.use('/api/carts', cartsRouter);
     }
 
     listen(port) {

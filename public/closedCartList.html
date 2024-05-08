@@ -11,8 +11,11 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="./assets/css/cartList.css">
+    <link rel="stylesheet" href="./assets/css/closedCartList.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <script src=https://cdnjs.cloudflare.com/ajax/libs/angular-i18n/1.8.3/angular-locale_pt-br.min.js></script>
 </head>
@@ -25,13 +28,65 @@
         <button type="button"></i></button>
     </header>
     <div class="cartList">
-        
-    </div>    
+        <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Compra #0001
+                <span class="caret"></span> </button>
+            <ul class="dropdown-menu">
+                <li class="cartItem">
+                    <p><img src="https://encurtador.com.br/puzIO"></p>
+                    <p>Batom Bala Matte Melu</p>
+                    <p>R$ 50,00</p>
+                    <p>3</p>
+                    <p>R$ 150,00</p>
+                </li>
+                <li class="cartItem">
+                    <p><img src="https://encurtador.com.br/puzIO"></p>
+                    <p>Batom Bala Matte Melu</p>
+                    <p>R$ 50,00</p>
+                    <p>3</p>
+                    <p>R$ 150,00</p>
+                </li>
+                <li class="cartItem">
+                    <p><img src="https://encurtador.com.br/puzIO"></p>
+                    <p>Batom Bala Matte Melu</p>
+                    <p>R$ 50,00</p>
+                    <p>3</p>
+                    <p>R$ 150,00</p>
+                </li>
+            </ul>
+        </div>
+        <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Compra #0002
+                <span class="caret"></span> </button>
+            <ul class="dropdown-menu">
+                <li class="cartItem">
+                    <p><img src="https://encurtador.com.br/puzIO"></p>
+                    <p>Batom Bala Matte Melu</p>
+                    <p>R$ 50,00</p>
+                    <p>3</p>
+                    <p>R$ 150,00</p>
+                </li>
+            </ul>
+        </div>
+        <div class="dropdown">
+            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Compra #0003
+                <span class="caret"></span> </button>
+            <ul class="dropdown-menu">
+                <li class="cartItem">
+                    <p><img src="https://encurtador.com.br/puzIO"></p>
+                    <p>Batom Bala Matte Melu</p>
+                    <p>R$ 50,00</p>
+                    <p>3</p>
+                    <p>R$ 150,00</p>
+                </li>
+            </ul>
+        </div>
+    </div>
     <script src="https://kit.fontawesome.com/581d404d9a.js" crossorigin="anonymous"></script>
     <script src="./assets/js/app.js"></script>
     <script src="./assets/js/lib/jwt-decode.js"></script>
     <script src="./assets/js/services/session.service.js"></script>
-    <script src="./assets/js/services/admin.service.js"></script>            
+    <script src="./assets/js/services/admin.service.js"></script>
     <script src="./assets/js/controllers/closedCartList.js"></script>
 </body>
 

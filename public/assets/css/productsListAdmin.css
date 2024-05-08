@@ -101,3 +101,6 @@ footer i{
     font-size: 50px;
     margin: 20px;
 }
+button{
+    cursor: pointer;
+}

@@ -96,3 +96,6 @@ label .imgBtn{
 .imagebtn input{
     margin-bottom: 2px;
 }
+button{
+    cursor: pointer;
+}

@@ -97,3 +97,6 @@ a button{
 .registerBtn button:hover{
     color:#000;
 }
+button{
+    cursor: pointer;
+}
