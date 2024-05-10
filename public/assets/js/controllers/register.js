@@ -19,7 +19,7 @@ app.controller("RegisterController", ($scope, $http)=>{
             password: $scope.password
         }).then(() =>{
             $scope.loading = false
-            location.href = "./index.html"
+            location.href = "./login.html"
         }), () =>{
             $scope.loading = false
         }

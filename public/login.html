@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR" ng-app="MakeupPlace-App">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - MakeUp Place</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./assets/css/login.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-controller="LoginController">
+    <form ng-submit="handleSubmit()" name="loginForm" class="content">
+        <div class="login">
+            <h1>Login</h1>
+            <label>
+                <p>EMAIL</p>
+                <input name="email" type="text" ng-model="email" placeholder="Email" required>
+                <span ng-if="loginForm.email.$dirty && loginForm.email.$error.required"> O e-mail é obrigatório</span>
+                <span ng-if="loginForm.email.$error.email"> Insira um e-mail válido</span>
+            </label>
+            <label>
+                <p>SENHA</p>
+                <input name="password" type="text" ng-model="password" placeholder="Senha" required>
+                <span ng-if="loginError"> Senha ou email inválidos</span>
+            </label>
+            <button type="submit" ng-disabled="loginForm.$invalid || loading">Entrar </button>
+        </div>
+        <div class="register">
+            <h2>Bem-Vindo a MakeUp Place</h2>
+            <p>Não tem conta ainda?</p>
+            <div for="a" class="registerBtn">
+                <a href="./register.html"><button type="button">Cadastre-se</button></a>
+            </div>
+        </div>
+    </form>
+    <script src="./assets/js/app.js"></script>
+    <script src="./assets/js/lib/jwt-decode.js"></script>
+    <script src="./assets/js/services/session.service.js"></script>
+    <script src="./assets/js/services/admin.service.js"></script>
+    <script src="./assets/js/controllers/login.js"></script>
+</body>
+
+</html>

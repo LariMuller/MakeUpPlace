@@ -11,7 +11,6 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
@@ -28,58 +27,28 @@
         <button type="button"></i></button>
     </header>
     <div class="cartList">
-        <div class="dropdown">
-            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Compra #0001
-                <span class="caret"></span> </button>
-            <ul class="dropdown-menu">
-                <li class="cartItem">
-                    <p><img src="https://encurtador.com.br/puzIO"></p>
-                    <p>Batom Bala Matte Melu</p>
-                    <p>R$ 50,00</p>
-                    <p>3</p>
-                    <p>R$ 150,00</p>
-                </li>
-                <li class="cartItem">
-                    <p><img src="https://encurtador.com.br/puzIO"></p>
-                    <p>Batom Bala Matte Melu</p>
-                    <p>R$ 50,00</p>
-                    <p>3</p>
-                    <p>R$ 150,00</p>
-                </li>
-                <li class="cartItem">
-                    <p><img src="https://encurtador.com.br/puzIO"></p>
-                    <p>Batom Bala Matte Melu</p>
-                    <p>R$ 50,00</p>
-                    <p>3</p>
-                    <p>R$ 150,00</p>
-                </li>
-            </ul>
+        <div class="compras" ng-repeat="cart in carts">
+            <div class="title">
+                <span>Compra #{{cart.id}}</span>
+                <span>{{cart.closedAt}}</span>
+                <span><strong>Total </strong>{{cart.total | currency}}</span>
+            </div>
+            <div class="items">
+                <div class="item" ng-repeat="item in cart.items">
+                    <div class="name">
+                        <img ng-src="{{item.product.imageUrl}}">
+                        <h4>{{item.product.name}}</h4>
+                    </div>
+                    <div class="info">
+                        <span>{{item.product.price | currency}}</span>
+                        <span>x{{item.quantity}}</span>
+                        <span>{{item.price * item.quantity | currency}}</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="dropdown">
-            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Compra #0002
-                <span class="caret"></span> </button>
-            <ul class="dropdown-menu">
-                <li class="cartItem">
-                    <p><img src="https://encurtador.com.br/puzIO"></p>
-                    <p>Batom Bala Matte Melu</p>
-                    <p>R$ 50,00</p>
-                    <p>3</p>
-                    <p>R$ 150,00</p>
-                </li>
-            </ul>
-        </div>
-        <div class="dropdown">
-            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">Compra #0003
-                <span class="caret"></span> </button>
-            <ul class="dropdown-menu">
-                <li class="cartItem">
-                    <p><img src="https://encurtador.com.br/puzIO"></p>
-                    <p>Batom Bala Matte Melu</p>
-                    <p>R$ 50,00</p>
-                    <p>3</p>
-                    <p>R$ 150,00</p>
-                </li>
-            </ul>
+        <div class="empty" ng-if="carts.length == 0">
+            <p> Nenhuma compra encontrada. <a href="./productsList.html"></a></p>
         </div>
     </div>
     <script src="https://kit.fontawesome.com/581d404d9a.js" crossorigin="anonymous"></script>

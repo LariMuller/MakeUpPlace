@@ -1,6 +1,4 @@
-const app = angular.module('MakeupPlace-App', [])
-
-app.controller("LoginController", ($scope, $http)=>{
+app.controller("LoginController", ($scope, $http, SessionService)=>{
     $scope.email = ''
     $scope.password = ''
     $scope.loading = false
@@ -20,12 +18,6 @@ app.controller("LoginController", ($scope, $http)=>{
             $scope.loginError = true
         }
     }
-    $scope.verifyLogin = () =>{
-        const token = localStorage.getItem('token')
 
-        if (token){
-        location.href = "./productList.html"
-        }
-    }
-    $scope.verifyLogin()
+    SessionService.verifyLogin(false)
 })

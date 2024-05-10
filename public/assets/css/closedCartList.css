@@ -36,27 +36,56 @@ header button{
     font-size: 35px;
     color: #f8f8f8;
 }
-img {
-    width:50px;
+.compras{
+    margin: 25px;
+    border: #7c7c7c 1px solid;
+    border-radius: 25px;
+    background-color: #e9ddd8;
 }
-.cartList {
-    padding: 50px;
-}
-.dropdown-toggle {
+.title{
+    padding: 25px;
     width: 100%;
-    height: 60px;
-    font-size: 26px;
-    margin-bottom: 5px;
-    border: #c4c4c4 1px solid;
-}
-.dropdown-menu {
-    width: 100%;
-}
-.cartItem{
-    padding: 5px 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 20px;
-    border-bottom: #c4c4c4 1px solid;
+    font-size: 25px;
+    font-weight: 300;
+    border-bottom: #7c7c7c 1px solid;
+}
+.items img{
+    width: 100px;
+}
+.items{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.item{
+    margin: 15px;
+    padding: 20px;
+    width: fit-content;
+    background-color: #f8f8f8;
+    border-radius: 25px;
+}
+.name{
+    text-align: center;
+}
+.info{
+    display: flex;
+    justify-content: space-between;
+}
+.empty {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff4ef;
+    margin-top: 50px;
+}
+
+.empty p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+body::-webkit-scrollbar {
+    display: none;
 }

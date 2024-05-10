@@ -26,14 +26,18 @@ app.service('SessionService', function() {
         return token
     }
 
-    this.logout = () => {
+    this.logout = (redirect = true) => {
         localStorage.removeItem('token')
-        location.href = '../index.html'
+        if(redirect) {
+            location.href = '/login.html'
+        }
     }
 
-    this.verifyLogin = () =>{
+    this.verifyLogin = (redirect = false) =>{
         if (!this.isAuthenticated()){
-            this.logout()
+            if (!this.isAuthenticated){
+                this.logout(redirect)
+            }
         }
     }
     this.createVerifyLoginInterval = ()=>{
