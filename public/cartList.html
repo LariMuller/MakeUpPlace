@@ -19,38 +19,37 @@
         <h1>MakeUp Place</h1>
         <button ng-click="closedCart()" type="button"><i class="fa-solid fa-list" title="Lista de Carrinhos"></i></button>
     </header>
-    <div class="cartList">
+    <div class="cartList" ng-if="items.length > 0">
         <table class="cartTable">
             <thead>
                 <tr class="cartHeader">
                     <th>PRODUTO</th>
                     <th>PREÇO</th>
                     <th>QTD</th>
-                    <th>TOTAL</th>
+                    <th>SUBTOTAL</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr class="cartItem" ></tr>
+            <tbody ng-repeat="item in items">
+                <tr class="cartItem">
                     <td>
-                        <img src="https://encurtador.com.br/puzIO">
-                        <p>Batom Bala Matte Melu</p>
+                        <img ng-src="{{item.imageUrl}}">
+                        <h4>{{item.name}}</h4>
                     </td>
-                    <td>R$ 50,00</td>
+                    <td>{{item.price | currency}}</td>
                     <td>
-                        <button type="button"> - </button>
-                        <span>3</span>
-                        <button type="button">+</button>
+                        <button ng-disabled="item.quantity <= 1" type="button" ng-click="decrease(item.id)"> - </button>
+                        <input type="number" ng-model="item.quantity" ng-change="onQuantityChange(item.id)">
+                        <button type="button" ng-click="increase(item.id)">+</button>
                     </td>
-                    <td>R$ 150,00</td>
+                    <td>{{item.price * item.quantity | currency}}</td>
                 </tr>
             </tbody>
         </table>
     </div>
+    <div class="empty" ng-if="items.length == 0"> <p> Nenhum item no carrinho. <a href="./productsList.html">Veja nossos produtos!</a></p></div>
     <div class="total">
         <h3>Total do Carrinho:</h3>
-        <p>SubTotal: <span>R$ 500,00</span></p>
-        <p>Frete: <span>R$ 25,92</span></p>
-        <p>Total: <span>R$ 525,92</span></p>
+        <p>Total: <span>{{total | currency}}</span></p>
         <button type="button">Finalizar Compra</button>
     </div>
     <script src="https://kit.fontawesome.com/581d404d9a.js" crossorigin="anonymous"></script>

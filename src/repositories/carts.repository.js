@@ -73,7 +73,27 @@ export class CartsRepository {
                 closed: true
             },
             include: {
-                items: true
+                items: {
+                    include: {
+                        product: true
+                    }
+                }
+            }
+        })
+        return carts
+    }
+    async getCarts(userId) {
+        const carts = await this.prisma.cart.findMany({
+            where: {
+                userId,
+                closed: true
+            },
+            include: {
+                items: {
+                    include: {
+                        product: true
+                    }
+                }
             }
         })
         return carts
@@ -85,13 +105,17 @@ export class CartsRepository {
                 userId,
                 OR: [{ closed: false }, { closed: null }]
             }, include: {
-                items: true
+                items: {
+                    include: {
+                        product: true
+                    }
+                }
             }
         })
         return cart
     }
 
-    async updateCart({ userId, productId, quantity}) {
+    async updateCart({ userId, productId, quantity, closed}) {
         const cartExists = await this.getCart(userId)
 
         let cartItem = await this.prisma.cartItem.update({
@@ -113,12 +137,28 @@ export class CartsRepository {
             })
         }
 
+        if (typeof closed === 'boolean') {
+            const cartItems = await this.prisma.cartItem.findMany({
+              where: { cartId: cartExists.id }
+            })
+            const total = cartItems.reduce((acc, cur) => acc + cur.price * cur.quantity, 0)
+      
+            await this.prisma.cart.update({
+              where: { id: cartExists.id },
+              data: {
+                closed,
+                closedAt: closed ? new Date() : null,
+                total: total
+              }
+            })
+          }
+
         const cart = await this.getCart(userId)
 
         return cart
     }
 
-    async deleteCart({userId, productId}) {
+    async deleteCartItem({userId, productId}) {
         const cart = await this.getCart(userId)
         await this.prisma.cartItem.delete({ where: { cartId: cart.id, productId } })
     }

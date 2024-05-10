@@ -35,9 +35,9 @@ model Cart {
   id       Int        @id @default(autoincrement())
   user     User       @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   userId   Int
-  items CartItem[]
-  total Float?
-  closed Boolean?
+  items   CartItem[]
+  total   Float?
+  closed  Boolean?
   closedAt DateTime?
 }
  

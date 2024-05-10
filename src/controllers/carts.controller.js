@@ -6,9 +6,15 @@ export class CartsController {
         this.repository = new CartsRepository()
     }
 
-    getClosedCarts = async (req, res) => {
+    getCarts = async (req, res) => {
         const userId = req.user.userId
         const carts = await this.repository.getClosedCarts(userId)
+        return res.json(carts)
+    }
+
+    getCarts = async (req, res) => {
+        const userId = req.user.userId
+        const carts = await this.repository.getCarts(userId)
         return res.json(carts)
     }
 
@@ -38,7 +44,7 @@ export class CartsController {
     deleteCart = async (req, res) => {
         const userId = req.user.userId
         const productId = Number(req.params.productId)
-        await this.repository.deleteCart({productId, userId})
+        await this.repository.deleteCartItem({productId, userId})
         return res.json({ ok: true })
     }
 }

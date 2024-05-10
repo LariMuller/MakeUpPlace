@@ -51,15 +51,32 @@ header button{
     font-size: 20px;
     font-weight: 300;
 }
-.cartList button{
-padding: 5px;
-border: none;
-font-size: 25px;
-border-radius: 50px;
-background-color: #fff4ef;
+h4{
+    font-weight: 400;
 }
-.cartList button:hover{
-    background-color: #ecdbd3;
+.cartList button {
+    padding: 8px 12px;
+    border: none;
+    font-size: 20px;
+    border-radius: 5px;
+    background-color: #fff4ef;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+input{
+    padding: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 50px;
+    text-align: center;
+    font-size: 18px;
+    outline: none;
+}
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
 }
 .cartList span{
     font-size: 25px;
@@ -72,7 +89,12 @@ tr{
     text-align: center;
 }
 td{
- text-align: center;
+    vertical-align: middle;
+    text-align: center;
+}
+th{
+    vertical-align: middle;
+    vertical-align: top;
 }
 .cartHeader{
     margin: 20px;
@@ -89,7 +111,7 @@ img{
     margin: 50px 10px;
     padding: 20px;
     font-size: 25px;
-    max-height: 400px;
+    max-height: 300px;
     font-weight: 350;
     display: flex;
     flex-direction: column;
@@ -116,4 +138,26 @@ img{
 }
 .total button:hover{
     background:radial-gradient(circle, rgb(223, 80, 92) 0%, rgb(221, 112, 61) 100%);
+}
+.empty {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    margin-top: 50px;
+}
+
+.empty p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.empty a {
+    color: #ff7d41;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.empty a:hover {
+    text-decoration: underline;
 }
